@@ -48,3 +48,16 @@ During exploration, the dataset had several issues:
    - Lowercased and replaced spaces with underscores:  
    ```python
    df.columns = df.columns.str.lower().str.strip().str.replace(" ", "_")
+## Data Cleaning Steps
+
+### 2. Handling Missing Values
+- Dropped rows with missing `Transaction_ID`, `Customer_ID`, `Price`, or `Quantity`  
+- Filled missing `Transaction_Status` with `"unknown"`  
+
+```python
+# Example
+df.dropna(subset=['transaction_id','customer_id','price','quantity'], inplace=True)
+df['transaction_status'].fillna('unknown', inplace=True)
+## Data Cleaning Steps
+
+
